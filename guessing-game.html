@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guess the Number</title>
+</head>
+<body>
+
+	<script>
+		// Generate a random number between 1 and 100
+		var secretNumber = Math.floor(Math.random() * 100) + 1;
+
+		// Create a while loop to let the user guess the number
+		var guess = 0;
+		while (guess !== secretNumber) {
+			// Ask the user to guess the number
+			guess = prompt("Guess the number between 1 and 100");
+
+			// Create conditional statements to check the user's guess
+			if (guess == null) {
+				// The user clicked Cancel, exit the loop
+				break;
+			} else if (isNaN(guess) || guess < 1 || guess > 100) {
+				// The user entered an invalid input, ask them to enter a number between 1 and 100
+				alert("Please enter a number between 1 and 100");
+			} else if (guess < secretNumber) {
+				// The user's guess is too low
+				alert("Too low, try again!");
+			} else if (guess > secretNumber) {
+				// The user's guess is too high
+				alert("Too high, try again!");
+			} else {
+				// The user guessed the secret number correctly
+				alert("Congratulations, you guessed the secret number!");
+			}
+		}
+	</script>
+
+</body>
+</html>
